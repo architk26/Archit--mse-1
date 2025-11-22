@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse IT Jobs - TechHire India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> TechHire India
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html" class="active">Browse Jobs</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="btn-nav">Post a Job</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Find Your Perfect IT Job</h1>
+            <p>Explore thousands of tech opportunities across India</p>
+        </div>
+    </section>
+
+    <!-- Jobs Listing -->
+    <section class="jobs-listing">
+        <div class="container">
+            <div class="jobs-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-card">
+                        <h3><i class="fas fa-filter"></i> Filters</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Job Category</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="frontend">
+                                <span>Frontend Developer</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="backend">
+                                <span>Backend Developer</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="fullstack">
+                                <span>Full Stack (MERN)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="java">
+                                <span>Java Developer</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="data">
+                                <span>Data Analyst</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="category" value="design">
+                                <span>UI/UX Designer</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Location</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="bangalore">
+                                <span>Bangalore</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="hyderabad">
+                                <span>Hyderabad</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="pune">
+                                <span>Pune</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="location" value="gurgaon">
+                                <span>Gurgaon</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Experience Level</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="experience" value="fresher">
+                                <span>Fresher (0-1 years)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="experience" value="mid">
+                                <span>Mid Level (2-5 years)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="experience" value="senior">
+                                <span>Senior (5+ years)</span>
+                            </label>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Salary Range (Annual)</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="salary" value="0-5">
+                                <span>₹3L - ₹6L</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="salary" value="5-10">
+                                <span>₹6L - ₹12L</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="salary" value="10+">
+                                <span>₹12L+</span>
+                            </label>
+                        </div>
+
+                        <button class="btn-primary" style="width: 100%;">Apply Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Jobs List -->
+                <div class="jobs-main">
+                    <div class="jobs-header">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search jobs..." id="jobSearchInput">
+                        </div>
+                        <select class="sort-select">
+                            <option>Most Recent</option>
+                            <option>Salary: High to Low</option>
+                            <option>Experience: Entry Level</option>
+                        </select>
+                    </div>
+
+                    <div class="jobs-count">
+                        <p>Showing <strong id="jobCount">12</strong> jobs</p>
+                    </div>
+
+                    <div class="jobs-list" id="jobsList">
+                        <!-- Jobs will be loaded by JavaScript -->
+                    </div>
+
+                    <div class="pagination">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-code"></i> TechHire India</h3>
+                    <p>Your gateway to India's best IT opportunities.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHire India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

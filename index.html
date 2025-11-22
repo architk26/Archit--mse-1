@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHire India - Find Your Dream IT Job</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> TechHire India
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Browse Jobs</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="btn-nav">Post a Job</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+ <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Launch Your <span class="gradient-text">IT Career</span> in India</h1>
+                <p class="hero-subtitle">Connect with top tech companies across Bangalore, Hyderabad, Pune & more</p>
+                
+                <div class="search-box">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Frontend, Backend, MERN..." id="heroSearch">
+                    </div>
+                    <div class="search-input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Bangalore, Hyderabad...">
+                    </div>
+                    <button class="btn-primary" onclick="window.location.href='jobs.html'">
+                        Search Jobs <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>15,000+</h3>
+                        <p>IT Jobs</p>
+                    </div>
+                    <div class="stat">
+                        <h3>5,000+</h3>
+                        <p>Tech Companies</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50,000+</h3>
+                        <p>IT Professionals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs -->
+    <section class="featured-jobs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured IT Jobs</h2>
+                <p>Top opportunities from leading tech companies</p>
+            </div>
+
+            <div class="jobs-grid" id="featuredJobs">
+                <!-- Jobs will be loaded by JavaScript -->
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="jobs.html" class="btn-secondary">View All Jobs <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>IT Job Categories</h2>
+                <p>Explore jobs by technology domain</p>
+            </div>
+
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>3,245 jobs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>4,123 jobs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3>Java Development</h3>
+                    <p>5,678 jobs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Full Stack (MERN)</h3>
+                    <p>2,876 jobs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Analytics</h3>
+                    <p>3,543 jobs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>2,321 jobs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Tech Cities -->
+    <section class="tech-cities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Tech Cities in India</h2>
+                <p>Find jobs in India's leading technology hubs</p>
+            </div>
+
+            <div class="cities-grid">
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Bangalore</h3>
+                    <p>5,234 IT Jobs</p>
+                </div>
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Hyderabad</h3>
+                    <p>3,456 IT Jobs</p>
+                </div>
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Pune</h3>
+                    <p>2,876 IT Jobs</p>
+                </div>
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Gurgaon</h3>
+                    <p>2,345 IT Jobs</p>
+                </div>
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Mumbai</h3>
+                    <p>1,987 IT Jobs</p>
+                </div>
+                <div class="city-card">
+                    <i class="fas fa-city"></i>
+                    <h3>Chennai</h3>
+                    <p>1,654 IT Jobs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Land your dream IT job in 3 simple steps</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-user-plus step-icon"></i>
+                    <h3>Create Profile</h3>
+                    <p>Build your tech profile with skills, projects, and experience</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-search step-icon"></i>
+                    <h3>Find Perfect Match</h3>
+                    <p>Browse IT jobs matching your skills across top tech cities</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-paper-plane step-icon"></i>
+                    <h3>Apply & Excel</h3>
+                    <p>One-click apply and start your journey with India's best companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-code"></i> TechHire India</h3>
+                    <p>Your gateway to India's best IT opportunities. Connecting talented developers with innovative companies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>For Job Seekers</h4>
+                    <ul>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Interview Tips</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>For Employers</h4>
+                    <ul>
+                        <li><a href="#">Post a Job</a></li>
+                        <li><a href="#">Find Talent</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHire India. All rights reserved. | Made with ❤️ in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    <!-- Application Form -->
+    <section class="application-section">
+        <div class="container">
+            <a href="job-detail.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Job</a>
+            
+            <div class="application-layout">
+                <div class="application-main">
+                    <div class="application-header">
+                        <h1>Apply for Position</h1>
+                        <p>Fill out the form below to submit your application</p>
+                    </div>
+
+                    <form class="application-form" id="applicationForm">
+                        <div class="form-section">
+                            <h2>Personal Information</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Current Location *</label>
+                                <input type="text" id="location" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Professional Details</h2>
+                            
+                            <div class="form-group">
+                                <label for="experience">Years of Experience *</label>
+                                <select id="experience" required>
+                                    <option value="">Select...</option>
+                                    <option value="0-1">Fresher (0-1 years)</option>
+                                    <option value="1-3">1-3 years</option>
+                                    <option value="3-5">3-5 years</option>
+                                    <option value="5+">5+ years</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentCompany">Current Company</label>
+                                <input type="text" id="currentCompany">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="skills">Technical Skills *</label>
+                                <input type="text" id="skills" placeholder="e.g., React, Node.js, Java, Python..." required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="linkedin">LinkedIn Profile URL</label>
+                                <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portfolio">Portfolio/GitHub URL</label>
+                                <input type="url" id="portfolio" placeholder="https://github.com/username">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Application Materials</h2>
+                            
+                            <div class="form-group">
+                                <label for="resume">Upload Resume/CV *</label>
+                                <div class="file-upload">
+                                    <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                                    <label for="resume" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Click to upload or drag and drop</span>
+                                        <span class="file-info">PDF, DOC, DOCX (Max 5MB)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="coverLetter">Cover Letter *</label>
+                                <textarea id="coverLetter" rows="6" placeholder="Tell us why you're a great fit for this position..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Additional Information</h2>
+                            
+                            <div class="form-group">
+                                <label for="salary">Expected Salary (Annual in INR)</label>
+                                <input type="text" id="salary" placeholder="e.g., ₹10,00,000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="availability">When can you start?</label>
+                                <select id="availability">
+                                    <option value="">Select...</option>
+                                    <option value="immediately">Immediately</option>
+                                    <option value="15days">15 days</option>
+                                    <option value="1month">1 month</option>
+                                    <option value="2months">2+ months</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" required>
+                                    <span>I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a> *</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="history.back()">Cancel</button>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="application-sidebar">
+                    <div class="sidebar-card">
+                        <div class="company-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Senior Frontend Developer</h3>
+                        <p class="company-name">Tech Solutions India</p>
+                        <div class="job-quick-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bangalore, Karnataka</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Full Time</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹15L - ₹25L</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card tips-card">
+                        <h3><i class="fas fa-lightbulb"></i> Application Tips</h3>
+                        <ul class="tips-list">
+                            <li>Highlight relevant IT skills</li>
+                            <li>Include GitHub/Portfolio links</li>
+                            <li>Mention tech stack experience</li>
+                            <li>Customize cover letter</li>
+                            <li>Proofread before submitting</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHire India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> -->
