@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookmarks - TechHire India</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .bookmarks-container {
+            min-height: calc(100vh - 200px);
+            background: #f8f9fa;
+            padding: 40px 20px;
+        }
+
+        .bookmarks-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .bookmarks-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .bookmarks-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .bookmarks-count {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .bookmarks-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bookmark-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .bookmark-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .bookmark-content {
+            flex: 1;
+        }
+
+        .bookmark-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .bookmark-company {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .bookmark-details {
+            display: flex;
+            gap: 20px;
+            color: #666;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .bookmark-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .bookmark-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bookmark-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-apply {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-apply:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-remove {
+            background: #fee;
+            color: #c33;
+            border: 1px solid #c33;
+        }
+
+        .btn-remove:hover {
+            background: #c33;
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .empty-state h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .empty-state-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .empty-state-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-controls input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .sort-select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .bookmark-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bookmark-actions {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .bookmark-btn {
+                flex: 1;
+            }
+
+            .filter-controls {
+                flex-direction: column;
+            }
+
+            .filter-controls input {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> TechHire India
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Browse Jobs</a></li>
+                    <li><a href="bookmarks.html">Bookmarks</a></li>
+                    <li><a href="applications.html">My Applications</a></li>
+                    <li><a href="#" id="userMenu" class="btn-nav">Profile</a></li>
+                    <li><a href="#" onclick="logout()" class="btn-nav">Logout</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="bookmarks-container">
+        <div class="container">
+            <div class="bookmarks-header">
+                <h1>My Bookmarks</h1>
+                <p>Save your favorite jobs for later</p>
+                <div class="bookmarks-count">
+                    <i class="fas fa-bookmark"></i> <span id="totalBookmarks">0</span> Bookmarked Jobs
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-controls">
+                    <input type="text" id="searchBookmarks" placeholder="Search bookmarked jobs...">
+                    <select id="sortBookmarks" class="sort-select">
+                        <option value="recent">Most Recent</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="title">Title (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="bookmarks-grid" id="bookmarksGrid">
+                <!-- Bookmarks will be loaded here -->
+            </div>
+
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <h2>No Bookmarks Yet</h2>
+                <p>You haven't bookmarked any jobs. Browse jobs and save your favorites!</p>
+                <button class="empty-state-btn" onclick="window.location.href='jobs.html'">
+                    <i class="fas fa-search"></i> Browse Jobs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-code"></i> TechHire India</h3>
+                    <p>Your gateway to India's best IT opportunities.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHire India. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        let allBookmarks = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadBookmarks();
+            setupEventListeners();
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            const user = localStorage.getItem('user');
+
+            if (!token || !user) {
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            const userData = JSON.parse(user);
+            document.getElementById('userMenu').textContent = userData.firstName;
+        }
+
+        async function loadBookmarks() {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await fetch(`${API_URL}/bookmarks`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    allBookmarks = data.bookmarks;
+                    displayBookmarks(allBookmarks);
+                }
+            } catch (error) {
+                console.error('Error loading bookmarks:', error);
+            }
+        }
+
+        function displayBookmarks(bookmarks) {
+            const container = document.getElementById('bookmarksGrid');
+            const emptyState = document.getElementById('emptyState');
+            const totalCount = document.getElementById('totalBookmarks');
+
+            totalCount.textContent = bookmarks.length;
+
+            if (bookmarks.length === 0) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            container.style.display = 'block';
+            emptyState.style.display = 'none';
+
+            container.innerHTML = bookmarks.map(bookmark => `
+                <div class="bookmark-card">
+                    <div class="bookmark-content">
+                        <div class="bookmark-title">${bookmark.jobTitle}</div>
+                        <div class="bookmark-company">${bookmark.company}</div>
+                        <div class="bookmark-details">
+                            <div class="bookmark-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${bookmark.location}</span>
+                            </div>
+                            <div class="bookmark-detail">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>${bookmark.salary}</span>
+                            </div>
+                            <div class="bookmark-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>${new Date(bookmark.createdAt).toLocaleDateString()}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bookmark-actions">
+                        <button class="bookmark-btn btn-apply" onclick="applyForJob('${bookmark.jobId}', '${bookmark.jobTitle}', '${bookmark.company}')">
+                            <i class="fas fa-paper-plane"></i> Apply
+                        </button>
+                        <button class="bookmark-btn btn-remove" onclick="removeBookmark('${bookmark.jobId}')">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            document.getElementById('searchBookmarks').addEventListener('input', filterBookmarks);
+            document.getElementById('sortBookmarks').addEventListener('change', sortBookmarks);
+        }
+
+        function filterBookmarks() {
+            const searchTerm = document.getElementById('searchBookmarks').value.toLowerCase();
+            const filtered = allBookmarks.filter(bookmark =>
+                bookmark.jobTitle.toLowerCase().includes(searchTerm) ||
+                bookmark.company.toLowerCase().includes(searchTerm) ||
+                bookmark.location.toLowerCase().includes(searchTerm)
+            );
+            displayBookmarks(filtered);
+        }
+
+        function sortBookmarks() {
+            const sortValue = document.getElementById('sortBookmarks').value;
+            let sorted = [...allBookmarks];
+
+            switch (sortValue) {
+                case 'oldest':
+                    sorted.reverse();
+                    break;
+                case 'title':
+                    sorted.sort((a, b) => a.jobTitle.localeCompare(b.jobTitle));
+                    break;
+                case 'recent':
+                default:
+                    sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            }
+
+            displayBookmarks(sorted);
+        }
+
+        async function removeBookmark(jobId) {
+            if (!confirm('Are you sure you want to remove this bookmark?')) return;
+
+            try {
+                const token = localStorage.getItem('token');
+                const response = await fetch(`${API_URL}/bookmarks/${jobId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    loadBookmarks();
+                }
+            } catch (error) {
+                console.error('Error removing bookmark:', error);
+            }
+        }
+
+        function applyForJob(jobId, jobTitle, company) {
+            window.location.href = `apply.html?jobId=${jobId}&title=${jobTitle}&company=${company}`;
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'auth.html';
+        }
+
+        // Hamburger menu toggle
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
